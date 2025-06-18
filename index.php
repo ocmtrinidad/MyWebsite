@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- This action keeps data on this page. Can also just leave empty. -->
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <!-- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <input type="number" name="num1" placeholder="Number one">
         <select name="operator">
             <option value="add">+</option>
@@ -18,7 +18,7 @@
         </select>
         <input type="number" name="num2" placeholder="Number two">
         <button>Calculate</button>
-    </form>
+    </form> -->
 
     <?php 
         // Checks if inputs are submitted through a from and not hardcoded in the url.
