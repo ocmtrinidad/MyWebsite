@@ -166,6 +166,13 @@ declare(strict_types=1);
     //     echo "This is a {$fruit} that is {$color} <br>";
     // };
     ?>
+    <h3>Signup</h3>
+    <form action="includes/formhandler.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <input type="text" name="email" placeholder="Email">
+        <button>Signup</button>
+    </form>
 </body>
 
 </html>
