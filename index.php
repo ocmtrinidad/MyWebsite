@@ -166,13 +166,19 @@ declare(strict_types=1);
     //     echo "This is a {$fruit} that is {$color} <br>";
     // };
     ?>
-    <h3>Signup</h3>
-    <form action="includes/formhandler.inc.php" method="post">
+    <h3>Update account</h3>
+    <form action="includes/userupdate.inc.php" method="post">
         <input type="text" name="username" placeholder="Username">
         <input type="password" name="pwd" placeholder="Password">
         <input type="text" name="email" placeholder="Email">
-        <button>Signup</button>
+        <button>Update</button>
+    </form>
+
+    <h3>Delete account</h3>
+    <form action="includes/userdelete.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <button>Delete</button>
     </form>
 </body>
-
 </html>
