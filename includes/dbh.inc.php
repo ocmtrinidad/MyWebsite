@@ -1,5 +1,4 @@
 <?php 
-// Pure php file does not need closing tag
 
 // Data Source Name (dsn).
 // Using localhost as we are using XAMPP local server. Use hosting provider info for online server.
@@ -9,10 +8,7 @@ $dbusername = "root";
 $dbpassword = "";
 
 try {
-  // 3 ways to connecting to database:
-  // 1) mysql connection (NOT RECOMMENDED). Has security problems.
-  // 2) mysqli connection. Has improved security.
-  // 3) pdo (Php Data Objects). Create an object with new PDO() that connects to database.
+  // new PDO (Php Data Objects). Creates an object that connects to database.
   $pdo = new PDO($dsn, $dbusername, $dbpassword);
   // Error handling. Uses setAttribute() from pdo object
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
