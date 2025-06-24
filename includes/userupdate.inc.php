@@ -10,10 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $query = "UPDATE users SET username = :username, pwd = :pwd, email = :email WHERE id = 4;";
 
+    $hashedPassword = password_hash($pwd, PASSWORD_BCRYPT);
+
     $stmt = $pdo->prepare($query);
 
     $stmt->bindParam(":username", $username);
-    $stmt->bindParam(":pwd", $pwd);
+    $stmt->bindParam(":pwd", $hashedPassword);
     $stmt->bindParam(":email", $email);
 
     $stmt->execute();
