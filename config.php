@@ -18,25 +18,25 @@ session_set_cookie_params([
   "httponly" => true
 ]);
 
-// session_set_cookie_params() MUST be set before sessionn_start();
+// session_set_cookie_params() MUST be set before session_start();
 session_start();
 
-// Transforms current id to more complex id.
-// Best practice is to regenerate id regularly.
+// session_regenerate_id(true) transforms current id to more complex id.
 // session_regenerate_id(true);
 
-// Checks if $_SESSION["last_regeneration"] is created.
+// Best practice is to regenerate id regularly.
+// Checks if $_SESSION["last_regeneration"] has been created.
 if (!isset($_SESSION["last_regeneration"])) {
-  // If not created, regenerates id.
+  // If not created, regenerates id for the first time.
   session_regenerate_id(true);
-  // Logs time of last regeneration.
+  // Logs time of regeneration.
   $_SESSION["last_regeneration"] = time();
 } else {
   // Interval of 30 mins.
   $interval = 60 * 30;
-  // If current time and last regeneration are more >= 30 mins, regenerate id and log new time.
+  // If current time and last regeneration are >= 30 mins, regenerate id and log new time.
   if (time() - $_SESSION["last_regeneration"] >= $interval) {
     session_regenerate_id(true);
     $_SESSION["last_regeneration"] = time();
-  }
-}
+  };
+};
