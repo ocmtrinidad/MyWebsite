@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 // Starts a session for this page.
-session_start();
+// session_start();
 
 // "Thor" will be remembered by any page with a session_start().
-$_SESSION["username"] = "Thor";
+// $_SESSION["username"] = "Thor";
 
 // Deletes 1 session data.
 // unset($_SESSION["username"]);
@@ -15,9 +15,12 @@ $_SESSION["username"] = "Thor";
 // session_unset();
 
 // Deletes ALL session data WHEN you go to a different page.
-session_destroy();
+// session_destroy();
 
 // Use both unset & destroy to end a session.
+
+// Imports session and configs.
+require_once "./config.php";
 ?>
 
 <!DOCTYPE html>
