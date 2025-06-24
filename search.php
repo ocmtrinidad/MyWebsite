@@ -34,28 +34,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <title>Document</title>
 </head>
 <body>
-  
   <h3>Search results</h3>
-  <?php 
+    <?php 
     if (!$results) {
-      ?>
+    ?>
       <div>
         <p>No results</p>
       </div>
-      <?php
+    <?php
     } else {
       foreach($results as $row) {
-        // Sanititze data when outputting data.
-        ?>
-        <div>
-          <h4><?php echo htmlspecialchars($row["username"]); ?></h4>
-          <p><?php echo htmlspecialchars($row["comment_text"]); ?></p>
-          <p><?php echo htmlspecialchars($row["created_at"]); ?></p>
-        </div>
-        <?php
+    // Sanititze data when outputting data.
+    ?>
+      <div>
+        <h4><?php echo htmlspecialchars($row["username"]); ?></h4>
+        <p><?php echo htmlspecialchars($row["comment_text"]); ?></p>
+        <p><?php echo htmlspecialchars($row["created_at"]); ?></p>
+      </div>
+    <?php
       };
     };
   ?>
-
 </body>
 </html>
