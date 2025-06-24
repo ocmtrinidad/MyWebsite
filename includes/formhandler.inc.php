@@ -21,9 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Sends query to database without data.
     $stmt = $pdo->prepare($query);
 
+    $hashedPassword = password_hash($pwd, PASSWORD_BCRYPT);
+
     // Binds user data with NAMED PARAMETERS.
     $stmt->bindParam(":username", $username);
-    $stmt->bindParam(":pwd", $pwd);
+    $stmt->bindParam(":pwd", $hashedPassword);
     $stmt->bindParam(":email", $email);
 
     // $stmt->execute([data]) using NON NAMED PARAMETERS.
