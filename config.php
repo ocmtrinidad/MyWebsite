@@ -10,7 +10,7 @@ session_set_cookie_params([
   "lifetime" => 1800,
   // Cookies only work in this domain.
   "domain" => "localhost",
-  // Any route in our domain.
+  // "/" means any route in our domain.
   "path" => "/",
   // Cookies only work when using https.
   "secure" => true,
