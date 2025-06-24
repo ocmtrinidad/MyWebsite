@@ -1,6 +1,23 @@
 <?php
-// For allows type declarations
+// For allowing type declarations
 declare(strict_types=1);
+
+// Starts a session for this page.
+session_start();
+
+// "Thor" will be remembered by any page with a session_start().
+$_SESSION["username"] = "Thor";
+
+// Deletes 1 session data.
+// unset($_SESSION["username"]);
+
+// Deletes ALL session data.
+// session_unset();
+
+// Deletes ALL session data WHEN you go to a different page.
+session_destroy();
+
+// Use both unset & destroy to end a session.
 ?>
 
 <!DOCTYPE html>
@@ -165,11 +182,7 @@ declare(strict_types=1);
     // foreach ($fruits as $fruit => $color) {
     //     echo "This is a {$fruit} that is {$color} <br>";
     // };
+    echo $_SESSION["username"];
     ?>
-    <form action="search.php" method="post">
-        <label for="search">Search for user:</label>
-        <input type="text" id="search" name="usersearch" placeholder="Search...">
-        <button>Search</button>
-    </form>
 </body>
 </html>
