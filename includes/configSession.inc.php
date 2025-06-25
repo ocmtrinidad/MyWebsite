@@ -22,21 +22,22 @@ session_set_cookie_params([
 session_start();
 
 // session_regenerate_id(true) transforms current id to more complex id.
-// session_regenerate_id(true);
-
 // Best practice is to regenerate id regularly.
+
 // Checks if $_SESSION["last_regeneration"] has been created.
 if (!isset($_SESSION["last_regeneration"])) {
   // If not created, regenerates id for the first time.
-  session_regenerate_id(true);
-  // Logs time of regeneration.
-  $_SESSION["last_regeneration"] = time();
+  regenerateSessionId();
 } else {
   // Interval of 30 mins.
   $interval = 60 * 30;
   // If current time and last regeneration are >= 30 mins, regenerate id and log new time.
   if (time() - $_SESSION["last_regeneration"] >= $interval) {
-    session_regenerate_id(true);
-    $_SESSION["last_regeneration"] = time();
+    regenerateSessionId();
   };
+};
+
+function regenerateSessionId() {
+  session_regenerate_id(true);
+  $_SESSION["last_regeneration"] = time();
 };
