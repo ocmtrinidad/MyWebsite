@@ -185,7 +185,23 @@ require_once "./config.php";
     // foreach ($fruits as $fruit => $color) {
     //     echo "This is a {$fruit} that is {$color} <br>";
     // };
-    echo $_SESSION["username"];
     ?>
+
+    <h3>Login</h3>
+
+    <form action="./includes/login.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button>Login</button>
+    </form>
+
+    <h3>Signup</h3>
+
+    <form action="./includes/signup.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="text" name="email" placeholder="Email">
+        <button>Signup</button>
+    </form>
 </body>
 </html>
