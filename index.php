@@ -20,7 +20,8 @@ declare(strict_types=1);
 // Use both unset & destroy to end a session.
 
 // Imports session and configs.
-require_once "./includes/configSession.inc.php"
+require_once "./includes/configSession.inc.php";
+require_once "./includes/signup_view.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -198,10 +199,13 @@ require_once "./includes/configSession.inc.php"
     <h3>Signup</h3>
 
     <form action="./includes/signup.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <input type="text" name="email" placeholder="Email">
+        <?php signUpInputs() ?>
         <button>Signup</button>
     </form>
+
+    <?php
+    checkSignupErrors();
+    ?>
 </body>
+
 </html>
