@@ -20,7 +20,7 @@ declare(strict_types=1);
 // Use both unset & destroy to end a session.
 
 // Imports session and configs.
-require_once "./config.php";
+require_once "./includes/configSession.inc.php"
 ?>
 
 <!DOCTYPE html>
