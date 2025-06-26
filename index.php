@@ -22,6 +22,7 @@ declare(strict_types=1);
 // Imports session and configs.
 require_once "./includes/configSession.inc.php";
 require_once "./includes/signup_view.inc.php";
+require_once "./includes/login_view.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -188,28 +189,42 @@ require_once "./includes/signup_view.inc.php";
     // };
     ?>
 
-    <h3>Login</h3>
+    <h3>
+        <?php outputUsername(); ?>
+    </h3>
 
-    <form action="./includes/login.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <button>Login</button>
-    </form>
+    <?php if (!isset($_SESSION["user_id"])) { ?>
+        <h3>Login</h3>
 
-    <h3>Signup</h3>
+        <form action="./includes/login.inc.php" method="post">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button>Login</button>
+        </form>
 
-    <form action="./includes/signup.inc.php" method="post">
         <?php
-        // Views 
-        signUpInputs()
+        // Views
+        checkLoginErrors();
         ?>
-        <button>Signup</button>
-    </form>
 
-    <?php
-    // Views
-    checkSignupErrors();
-    ?>
+        <h3>Signup</h3>
+
+        <form action="./includes/signup.inc.php" method="post">
+            <?php signUpInputs() ?>
+            <button>Signup</button>
+        </form>
+
+        <?php checkSignupErrors(); ?>
+    <?php } ?>
+
+    <?php if (isset($_SESSION["user_id"])) { ?>
+        <h3>Logout</h3>
+
+        <form action="./includes/logout.inc.php" method="post">
+            <button>Logout</button>
+        </form>
+    <?php } ?>
+
 </body>
 
 </html>
