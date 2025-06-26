@@ -24,20 +24,41 @@ session_start();
 // session_regenerate_id(true) transforms current id to more complex id.
 // Best practice is to regenerate id regularly.
 
-// Checks if $_SESSION["last_regeneration"] has been created.
-if (!isset($_SESSION["last_regeneration"])) {
-  // If not created, regenerates id for the first time.
-  regenerateSessionId();
-} else {
-  // Interval of 30 mins.
-  $interval = 60 * 30;
-  // If current time and last regeneration are >= 30 mins, regenerate id and log new time.
-  if (time() - $_SESSION["last_regeneration"] >= $interval) {
-    regenerateSessionId();
+// Checks if user is logged in.
+if (isset($_SESSION["user_id"])) {
+  // Checks if $_SESSION["last_regeneration"] has been created.
+  if (!isset($_SESSION["last_regeneration"])) {
+    // If not created, regenerates id for the first time.
+    regenerateSessionIdLoggedIn();
+  } else {
+    // Interval of 30 mins.
+    $interval = 60 * 30;
+    // If current time and last regeneration are >= 30 mins, regenerate id and log new time.
+    if (time() - $_SESSION["last_regeneration"] >= $interval) {
+      regenerateSessionIdLoggedIn();
+    };
   };
+} else {
+  if (!isset($_SESSION["last_regeneration"])) {
+    regenerateSessionId();
+  } else {
+    $interval = 60 * 30;
+    if (time() - $_SESSION["last_regeneration"] >= $interval) {
+      regenerateSessionId();
+    };
+  };
+}
+
+function regenerateSessionId()
+{
+  session_regenerate_id(true);
+  $_SESSION["last_regeneration"] = time();
 };
 
-function regenerateSessionId() {
-  session_regenerate_id(true);
+function regenerateSessionIdLoggedIn()
+{
+  $newSessionId = session_create_id();
+  $sessionId = $newSessionId . "_" . $_SESSION["user_id"];
+  session_id($sessionId);
   $_SESSION["last_regeneration"] = time();
 };
