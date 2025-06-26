@@ -25,7 +25,6 @@ function checkSignupErrors()
 
 function signUpInputs()
 {
-
   if (
     isset($_SESSION["signup_data"]["username"]) &&
     !isset($_SESSION["errors_signup"]["username_taken"])
