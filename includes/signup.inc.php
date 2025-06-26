@@ -28,12 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     require_once "../includes/configSession.inc.php";
 
     if ($errors) {
+      // To be used in views.
       $_SESSION["errors_signup"] = $errors;
       // Data to be sent back. Not password, always re type password.
       $signupData = [
         "username" => $username,
         "email" => $email
       ];
+      // To be used in views.
       $_SESSION["signup_data"] = $signupData;
       header("Location: ../index.php");
       die();
