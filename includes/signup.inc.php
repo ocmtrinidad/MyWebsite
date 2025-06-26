@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     createUser($pdo, $username, $password, $email);
 
+    // Not necessary success should send user to /login.
     header("Location: ../index.php?signup=success");
 
     $pdo = null;
