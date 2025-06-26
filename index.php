@@ -199,11 +199,15 @@ require_once "./includes/signup_view.inc.php";
     <h3>Signup</h3>
 
     <form action="./includes/signup.inc.php" method="post">
-        <?php signUpInputs() ?>
+        <?php
+        // Views 
+        signUpInputs()
+        ?>
         <button>Signup</button>
     </form>
 
     <?php
+    // Views
     checkSignupErrors();
     ?>
 </body>
