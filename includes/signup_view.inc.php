@@ -48,4 +48,6 @@ function signUpInputs()
   } else {
     echo '<input type="text" name="email" placeholder="Email">';
   }
+
+  unset($_SESSION["signup_data"]);
 }
