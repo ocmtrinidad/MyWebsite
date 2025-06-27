@@ -5,6 +5,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $password = $_POST["password"];
   $email = $_POST["email"];
 
+  // Sanitizing inputs.
+  // filter_inputs(INPUT_METHOD, variable name, SANITIZE/ VALIDATE OPTION).
+  // $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+  // $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+  // $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
   try {
     require_once "./dbh.inc.php";
     // This order matters. M V C.
