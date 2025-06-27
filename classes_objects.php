@@ -5,15 +5,13 @@ class User
 {
   // private means data cannot be accessed outside the class. Use getters and setters to access.
   private $name;
-  private $email;
 
   // __construct() is a built in function that allows user to store data in class.
   // Params are what you send when instantiating new User().
-  public function __construct($name, $email)
+  public function __construct($name)
   {
     // $this is the class itself.
     $this->name = $name;
-    $this->email = $email;
   } // No semi-colon
 
   public function login()
