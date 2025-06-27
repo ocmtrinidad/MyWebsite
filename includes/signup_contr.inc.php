@@ -17,6 +17,7 @@ function isInputEmpty($username, $password, $email)
 function isEmailInvalid($email)
 {
   // Checks if email is a valid email.
+  // filter_var() can be used to validate variables.
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     return true;
   } else {
